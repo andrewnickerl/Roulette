@@ -7,8 +7,8 @@ namespace Roulette
         static void Main(string[] args)
         {
             Wheel wheel = new Wheel();
-            Console.WriteLine(wheel.Spin(wheel.Numbers, wheel.Colors).Number);
-            Console.WriteLine(wheel.Spin(wheel.Numbers, wheel.Colors).Color);
+            Bin bin = wheel.Spin(wheel.Numbers, wheel.Colors);
+            Console.WriteLine(bin.Number + "\n" + bin.Color);            
         }
     }
 }
