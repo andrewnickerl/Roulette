@@ -8,7 +8,9 @@ namespace Roulette
         {
             Wheel wheel = new Wheel();
             Bin bin = wheel.Spin(wheel.Numbers, wheel.Colors);
-            Console.WriteLine(bin.Number + "\n" + bin.Color);            
+            Console.WriteLine($"The winning bin is {bin.Number}!");
+            Console.WriteLine("The winning bets are:");
+            Console.Write(wheel.WinningBets(bin));
         }
     }
 }
