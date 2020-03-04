@@ -8,139 +8,143 @@ namespace Roulette
     {
         public Wheel()
         {
-            this.Numbers = new int[38];
+            this.Numbers = new string[38];
             for(int i = 0; i < Numbers.Length; i++)
             {
-                this.Numbers[i] = i;
+                this.Numbers[i] = $"{i}";
                 if(i == Numbers.Length-1)
                 {
-                    this.Numbers[i] = 0;
+                    this.Numbers[i] = "00";
                 }
             }
             this.Colors = new string[3] { "Red", "Black", null };
         }
 
-        public int[] Numbers { get; }
+        //PROPERTIES
+        public string[] Numbers { get; }
         public string[] Colors { get; }
 
         //returns a Bin object with a number and a color based on RNG of the numbers of the roulette wheel
-        public Bin Spin(int[] numbers, string[] colors)
+        public Bin Spin(string[] numbers, string[] colors)
         {
             Random random = new Random();
-            int rollNum = numbers[random.Next(39)]; //generate random number between 0 and 38 and assign the value of the element in the numbers array at that position to rollNum
+            string rollNum = numbers[random.Next(numbers.Length)]; //generate random number between 0 and 38 and assign the value of the element in the numbers array at that position to rollNum
             string rollColor = "";
             switch (rollNum)
             {
-                case 0:
+                case "0":
                     rollColor = colors[2];
                     break;
-                case 1:
+                case "1":
                     rollColor = colors[0];
                     break;
-                case 2:
+                case "2":
                     rollColor = colors[1];
                     break;
-                case 3:
+                case "3":
                     rollColor = colors[0];
                     break;
-                case 4:
+                case "4":
                     rollColor = colors[1];
                     break;
-                case 5:
+                case "5":
                     rollColor = colors[0];
                     break;
-                case 6:
+                case "6":
                     rollColor = colors[1];
                     break;
-                case 7:
+                case "7":
                     rollColor = colors[0];
                     break;
-                case 8:
+                case "8":
                     rollColor = colors[1];
                     break;
-                case 9:
+                case "9":
                     rollColor = colors[0];
                     break;
-                case 10:
+                case "10":
                     rollColor = colors[1];
                     break;
-                case 11:
+                case "11":
                     rollColor = colors[1];
                     break;
-                case 12:
+                case "12":
                     rollColor = colors[0];
                     break;
-                case 13:
+                case "13":
                     rollColor = colors[1];
                     break;
-                case 14:
+                case "14":
                     rollColor = colors[0];
                     break;
-                case 15:
+                case "15":
                     rollColor = colors[1];
                     break;
-                case 16:
+                case "16":
                     rollColor = colors[0];
                     break;
-                case 17:
+                case "17":
                     rollColor = colors[1];
                     break;
-                case 18:
+                case "18":
                     rollColor = colors[0];
                     break;
-                case 19:
+                case "19":
                     rollColor = colors[0];
                     break;
-                case 20:
+                case "20":
                     rollColor = colors[1];
                     break;
-                case 21:
+                case "21":
                     rollColor = colors[0];
                     break;
-                case 22:
+                case "22":
                     rollColor = colors[1];
                     break;
-                case 23:
+                case "23":
                     rollColor = colors[0];
                     break;
-                case 24:
+                case "24":
                     rollColor = colors[1];
                     break;
-                case 25:
+                case "25":
                     rollColor = colors[0];
                     break;
-                case 26:
+                case "26":
                     rollColor = colors[1];
                     break;
-                case 27:
+                case "27":
                     rollColor = colors[0];
                     break;
-                case 28:
+                case "28":
                     rollColor = colors[1];
                     break;
-                case 29:
+                case "29":
                     rollColor = colors[1];
                     break;
-                case 30:
+                case "30":
                     rollColor = colors[0];
                     break;
-                case 31:
+                case "31":
                     rollColor = colors[1];
                     break;
-                case 32:
+                case "32":
                     rollColor = colors[0];
                     break;
-                case 33:
+                case "33":
                     rollColor = colors[1];
                     break;
-                case 34:
+                case "34":
                     rollColor = colors[0];
                     break;
-                case 35:
+                case "35":
                     rollColor = colors[1];
                     break;
-                case 36:
+                case "36":
                     rollColor = colors[0];
+                    break;
+                case "00":
+                    rollColor = colors[2];
                     break;
                 default:
                     break;
@@ -166,16 +170,15 @@ namespace Roulette
 
             switch (bin.Number)
             {
-                case 0:
+                case "0":
                     winningBets += "\nBet on 0";
                     winningBets += "\nSplit bet on 0/00";
                     winningBets += "\nSplit bet on 0/1";
                     winningBets += "\nSplit bet on 0/2";
                     winningBets += "\nCorner bet on 0/1/2";
                     winningBets += "\nCorner bet on 0/00/2";
-                    winningBets += "\nCorner bet on 00/2/3";
                     break;
-                case 1:
+                case "1":
                     winningBets += "\nBet on 1";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -189,7 +192,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 0/1/2";
                     winningBets += "\nCorner bet on 1/2/4/5";
                     break;
-                case 2:
+                case "2":
                     winningBets += "\nBet on 2";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -206,7 +209,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 1/2/4/5";
                     winningBets += "\nCorner bet on 2/3/5/6";
                     break;
-                case 3:
+                case "3":
                     winningBets += "\nBet on 3";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -220,7 +223,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 00/2/3";
                     winningBets += "\nCorner bet on 2/3/5/6";
                     break;
-                case 4:
+                case "4":
                     winningBets += "\nBet on 4";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -234,7 +237,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 1/2/4/5";
                     winningBets += "\nCorner bet on 4/5/7/8";
                     break;
-                case 5:
+                case "5":
                     winningBets += "\nBet on 5";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -251,7 +254,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 4/5/7/8";
                     winningBets += "\nCorner bet on 5/6/8/9";
                     break;
-                case 6:
+                case "6":
                     winningBets += "\nBet on 6";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -265,7 +268,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 2/3/5/6";
                     winningBets += "\nCorner bet on 5/6/8/9";
                     break;
-                case 7:
+                case "7":
                     winningBets += "\nBet on 7";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -279,7 +282,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 4/5/7/8";
                     winningBets += "\nCorner bet on 7/8/10/11";
                     break;
-                case 8:
+                case "8":
                     winningBets += "\nBet on 8";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -296,7 +299,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 7/8/10/11";
                     winningBets += "\nCorner bet on 8/9/11/12";
                     break;
-                case 9:
+                case "9":
                     winningBets += "\nBet on 9";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -310,7 +313,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 5/6/8/9";
                     winningBets += "\nCorner bet on 8/9/11/12";
                     break;
-                case 10:
+                case "10":
                     winningBets += "\nBet on 10";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -324,7 +327,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 7/8/10/11";
                     winningBets += "\nCorner bet on 10/11/13/14";
                     break;
-                case 11:
+                case "11":
                     winningBets += "\nBet on 11";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -341,7 +344,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 10/11/13/14";
                     winningBets += "\nCorner bet on 11/12/14/15";
                     break;
-                case 12:
+                case "12":
                     winningBets += "\nBet on 12";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -355,7 +358,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 8/9/11/12";
                     winningBets += "\nCorner bet on 11/12/14/15";
                     break;
-                case 13:
+                case "13":
                     winningBets += "\nBet on 13";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -369,7 +372,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 10/11/13/14";
                     winningBets += "\nCorner bet on 13/14/16/17";
                     break;
-                case 14:
+                case "14":
                     winningBets += "\nBet on 14";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -386,7 +389,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 13/14/16/17";
                     winningBets += "\nCorner bet on 14/15/17/18";
                     break;
-                case 15:
+                case "15":
                     winningBets += "\nBet on 15";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -400,7 +403,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 11/12/14/15";
                     winningBets += "\nCorner bet on 14/15/17/18";
                     break;
-                case 16:
+                case "16":
                     winningBets += "\nBet on 16";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -414,7 +417,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 13/14/16/17";
                     winningBets += "\nCorner bet on 16/17/19/20";
                     break;
-                case 17:
+                case "17":
                     winningBets += "\nBet on 17";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on lows 1-18";
@@ -431,7 +434,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 16/17/19/29";
                     winningBets += "\nCorner bet on 17/18/20/21";
                     break;
-                case 18:
+                case "18":
                     winningBets += "\nBet on 18";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on lows 1-18";
@@ -445,7 +448,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 14/15/17/18";
                     winningBets += "\nCorner bet on 17/18/20/21";
                     break;
-                case 19:
+                case "19":
                     winningBets += "\nBet on 19";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -459,7 +462,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 16/17/19/20";
                     winningBets += "\nCorner bet on 19/20/22/23";
                     break;
-                case 20:
+                case "20":
                     winningBets += "\nBet on 20";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -476,7 +479,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 19/20/22/23";
                     winningBets += "\nCorner bet on 20/21/23/24";
                     break;
-                case 21:
+                case "21":
                     winningBets += "\nBet on 21";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -490,7 +493,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 17/18/20/21";
                     winningBets += "\nCorner bet on 20/21/23/24";
                     break;
-                case 22:
+                case "22":
                     winningBets += "\nBet on 22";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -504,7 +507,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 19/20/22/23";
                     winningBets += "\nCorner bet on 22/23/25/26";
                     break;
-                case 23:
+                case "23":
                     winningBets += "\nBet on 23";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -521,7 +524,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 22/23/25/26";
                     winningBets += "\nCorner bet on 23/24/26/27";
                     break;
-                case 24:
+                case "24":
                     winningBets += "\nBet on 24";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -535,7 +538,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 20/21/23/24";
                     winningBets += "\nCorner bet on 23/24/26/27";
                     break;
-                case 25:
+                case "25":
                     winningBets += "\nBet on 25";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -550,7 +553,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 25/26/28/29";
 
                     break;
-                case 26:
+                case "26":
                     winningBets += "\nBet on 26";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -567,7 +570,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 25/26/28/29";
                     winningBets += "\nCorner bet on 26/27/29/30";
                     break;
-                case 27:
+                case "27":
                     winningBets += "\nBet on 27";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -581,7 +584,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 23/24/26/27";
                     winningBets += "\nCorner bet on 26/27/29/30";
                     break;
-                case 28:
+                case "28":
                     winningBets += "\nBet on 28";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -595,7 +598,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 25/26/28/29";
                     winningBets += "\nCorner bet on 28/29/31/32";
                     break;
-                case 29:
+                case "29":
                     winningBets += "\nBet on 29";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -612,7 +615,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 28/29/31/32";
                     winningBets += "\nCorner bet on 29/30/32/33";
                     break;
-                case 30:
+                case "30":
                     winningBets += "\nBet on 30";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -626,7 +629,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 26/27/29/30";
                     winningBets += "\nCorner bet on 29/30/32/33";
                     break;
-                case 31:
+                case "31":
                     winningBets += "\nBet on 31";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -640,7 +643,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 28/29/31/32";
                     winningBets += "\nCorner bet on 31/32/34/35";
                     break;
-                case 32:
+                case "32":
                     winningBets += "\nBet on 32";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -657,7 +660,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 31/32/34/35";
                     winningBets += "\nCorner bet on 32/33/35/36";
                     break;
-                case 33:
+                case "33":
                     winningBets += "\nBet on 33";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -671,7 +674,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 29/30/32/33";
                     winningBets += "\nCorner bet on 32/33/35/36";
                     break;
-                case 34:
+                case "34":
                     winningBets += "\nBet on 34";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -683,7 +686,7 @@ namespace Roulette
                     winningBets += "\nSplit bet on 34/35";
                     winningBets += "\nCorner bet on 31/32/34/35";
                     break;
-                case 35:
+                case "35":
                     winningBets += "\nBet on 35";
                     winningBets += "\nBet on odds";
                     winningBets += "\nBet on highs 19-36";
@@ -697,7 +700,7 @@ namespace Roulette
                     winningBets += "\nCorner bet on 31/32/34/35";
                     winningBets += "\nCorner bet on 32/33/35/36";
                     break;
-                case 36:
+                case "36":
                     winningBets += "\nBet on 36";
                     winningBets += "\nBet on evens";
                     winningBets += "\nBet on highs 19-36";
@@ -708,6 +711,14 @@ namespace Roulette
                     winningBets += "\nSplit bet on 33/36";
                     winningBets += "\nSplit bet on 35/36";
                     winningBets += "\nCorner bet on 32/33/35/36";
+                    break;
+                case "00":
+                    winningBets += "\nBet on 00";
+                    winningBets += "\nSplit bet on 0/00";
+                    winningBets += "\nSplit bet on 00/2";
+                    winningBets += "\nSplit bet on 00/3";
+                    winningBets += "\nCorner bet on 0/00/2";
+                    winningBets += "\nCorner bet on 00/2/3";
                     break;
                 default:
                     break;

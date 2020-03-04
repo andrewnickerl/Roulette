@@ -6,13 +6,13 @@ namespace Roulette
 {
     class Bin
     {
-        public Bin(int number, string color)
+        public Bin(string number, string color)
         {
             this.Number = number;
             this.Color = color;
         }
 
-        public int Number { get; set; }
+        public string Number { get; set; }
         public string Color { get; set; }
     }
 }
