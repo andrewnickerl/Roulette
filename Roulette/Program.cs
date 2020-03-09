@@ -18,7 +18,7 @@ namespace Roulette
 
             Console.WriteLine($"The winning bin is {bin.Number}!");
             Console.WriteLine("\nThe winning bets are:\n");
-            Console.Write(wheel.WinningBets(bin));
+            Console.Write(bin.WinningBets(bin));
         }
     }
 }
